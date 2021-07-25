@@ -1,0 +1,14 @@
+# Editors
+.vscode/*
+
+# Virtual environment
+venv/*
+env/*
+
+
+# Machine compile python files
+*.pyc
+
+
+# Environment variables
+.env

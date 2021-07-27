@@ -1,0 +1,9 @@
+body {
+    font-family: 'Lexend', sans-serif !important;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+}
+
+.bordered{
+    border: 1px solid lightgray;
+}

@@ -10,14 +10,18 @@
         </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
 
         {% block head %}
           
         {% endblock head %}
     </head>
-    <body>
+    <body >
         <section>
             <header>
                 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
@@ -38,11 +42,30 @@
                                 <!-- navbar items -->
                             </div>
 
-                            <div class="navbar-end">
-                                <a class="navbar-item" href="/auth/users/">
-                                    Users
-                                </a>
-                            </div>
+                            
+                            {% if not current_user.is_authenticated %}
+                                <div class="navbar-end">
+                                    <a class="navbar-item" href="/auth/login/">
+                                        Login
+                                    </a>
+                                    <a class="navbar-item" href="/auth/signup/">
+                                        Signup
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="navbar-end">
+                                    <a class="navbar-item" href="/auth/users/">
+                                        Users
+                                    </a>
+                                    <div class="navbar-item">
+                                        {{current_user.first_name}}
+                                    </div>
+                                    <a class="navbar-item" href="/auth/logout/">
+                                        Logout
+                                    </a>
+                                </div>
+                            {% endif %}
+                                
                         </div>
                     </div>
                 </nav>

@@ -16,17 +16,42 @@
             <div class="column is-3"></div>
             <div class="column is-6">
                 <div class="is-size-3">
-                    Create User
+                    Login
                 </div>
 
-                <form class="mt-4" method="post" action="">
-                    <div class="field">
-                        <label for="first_name">
-                            First Name
-                        </label>
-                        <input type="text" name="first_name" id="first_name" class="input"/>
+                <div class="card is-shadowless bordered mt-4">
+                    <div class="card-content">
+                        <form class="mt-4" method="post" action="">
+                            <div class="field">
+                                <label for="email">
+                                    Email
+                                </label>
+                                <input type="email" name="email" 
+                                    required
+                                    id="email" class="input"/>
+                            </div>
+                            <div class="field">
+                                <label for="password">
+                                    Password
+                                </label>
+                                <input type="password" name="password" 
+                                    required
+                                    id="password" class="input"/>
+                            </div>
+                            
+                            {% if data.next %}
+                                <input type="hidden" name="next" value="{{data.next}}"/>
+                            {% endif %}
+                                
+                            
+                            <div class="field">
+                                <button class="button is-dark is-fullwidth">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
             
         </div>

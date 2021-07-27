@@ -1,3 +1,5 @@
+from flask_login import UserMixin
+
 # Import the database object (db) from the main application module
 from app import db
 
@@ -12,7 +14,7 @@ class Base(db.Model):
                                            onupdate=db.func.current_timestamp())
 
 # User model
-class User(Base):
+class User(UserMixin, Base):
 
     __tablename__ = 'auth_user'
 
